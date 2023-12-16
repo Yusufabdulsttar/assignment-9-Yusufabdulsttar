@@ -1,0 +1,23 @@
+From ad7d8ad801ddb7cc2f4f3e6efa85580113609db6 Mon Sep 17 00:00:00 2001
+From: yusufabdulsttar <yusufabdulsttar@gmail.com>
+Date: Sat, 16 Dec 2023 12:54:23 +0200
+Subject: [PATCH] Modify the ldd3 makefile
+
+---
+ Makefile | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7b08c49..20b21ba 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,5 @@
+ 
+-SUBDIRS =  misc-progs misc-modules \
+-           skull scull scullc scullp lddbus sculld scullv shortprint simple tty \
+-	   pci usb\
+-	   sbull snull short
++SUBDIRS =  misc-modules scull 
+ 
+ all: subdirs
+ 
