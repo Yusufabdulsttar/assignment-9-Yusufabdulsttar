@@ -31,6 +31,7 @@ EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
 inherit update-rc.d
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME:${PN} = "scull-start-stop"
+KERNEL_MODULE_AUTOLOAD += "scull"
 
 FILES:${PN} += "${sysconfdir}/init.d/scull-start-stop"
 
@@ -38,4 +39,7 @@ FILES:${PN} += "${sysconfdir}/init.d/scull-start-stop"
 do_install () {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/files/scull-start-stop ${D}${sysconfdir}/init.d
+	
+	install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/
+	install -m 0755 ${S}/scull/scull.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/
 }
